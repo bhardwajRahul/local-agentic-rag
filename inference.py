@@ -12,7 +12,7 @@ from agno.models.ollama import Ollama
 
 
 urls = [
-    "https://qdrant.tech/documentation/overview/",
+    "https://blog.google/technology/developers/gemma-3/",
 ]
 
 loader = WebBaseLoader(urls)
@@ -46,12 +46,12 @@ retriever = vector_store.as_retriever()
 knowledge_base = LangChainKnowledgeBase(retriever=retriever)
 
 agent = Agent(
-    model=Ollama(id="llama3.1"),
+    model=Ollama(id="gemma3:4b"),
     knowledge=knowledge_base,
     description="Answer to the user question from the knowledge base",
     markdown=True,
     search_knowledge=True,
 )
 
-user_query = "The most commonly used distance metrics as per the document"
+user_query = "How many global languages is supported?"
 agent.print_response(user_query, stream=True)
