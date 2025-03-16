@@ -46,7 +46,7 @@ retriever = vector_store.as_retriever()
 knowledge_base = LangChainKnowledgeBase(retriever=retriever)
 
 agent = Agent(
-    model=Ollama(id="gemma3:4b"),
+    model=Ollama(id="llama3.1"),
     knowledge=knowledge_base,
     description="Answer to the user question from the knowledge base",
     markdown=True,
